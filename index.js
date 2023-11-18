@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.text());
 app.use(cors());
 
-app.post('/guest', async (req, res) => {
+app.post('/', async (req, res) => {
 	const data = req.body;
 	try {
 		await sendEmail(data);
@@ -23,3 +23,5 @@ app.post('/guest', async (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+
+module.exports = app;
